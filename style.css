@@ -1,4 +1,4 @@
-*::before, *::after {
+/* *::before, *::after {
     box-sizing: border-box;
     margin: 0;
     padding: 0;
@@ -13,29 +13,26 @@ body {
     height: 100vh;
     justify-content: center;
     align-items: center;
-}
+} */
 
-.container {
+.box {
     width: 800px;
     max-width: 80%;
     background-color: white;
     border-radius: 5px;
-    padding: 10px;
+   align-items: center;
     box-shadow: 0 0 10px 2px;
 }
 
-.btn-grid {
+ .btn-grid {
     display: grid;
     padding: 40px;
     margin: 40px;
-    gap: 10px;
+    gap: 20px;
+    font-size: x-large;
 }
 
-.controls {
-    display: inline-grid;
-    margin: auto;
-}
-.btn {
+/*.btn {
     font-size: x-large;
     background-color: aqua;
     color: white;
@@ -59,4 +56,4 @@ p {
     justify-content: center;
     align-items: center;
     font-size: 70px;
-}
+} */

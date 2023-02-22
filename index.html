@@ -7,23 +7,25 @@
   <meta http-equiv="X-UA-Compatible" content="ie=edge">
   <title>Quiz App</title>
   <link rel="stylesheet" href="style.css">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
+  <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0-alpha1/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-GLhlTQ8iRABdZLl6O3oVMWSktQOp6b7In1Zl3/Jr59b6EGGoI1aFkw7cmDA6j6gD" crossorigin="anonymous">
 </head>
 
-<body style="justify-content: center;">
-    <div class="container">
+<body>
+    <div class="container d-flex justify-content-center align" style="margin-top:200px">
         <!-- <div id="question-container" class="hide"></div> -->
-            <div style="display:flex; justify-content: center; align-items: center;" id="question-box">
+            <div id="question-box" class="box">
                 <div id="timer"></div>
-             <p class="questions">Get Ready Gio!!!</p>
-            </div>
-            <div id="answer-buttons" class="btn-grid" style= "display: none;">
+             <h1 class="questions d-flex justify-content-center my-4">Get Ready Gio!!!</h1>
+             <div id="answer-buttons" class="btn-grid" style= "display: none;">
                 <button class="btn-a">Answer 1</button>
                 <button class="btn-b">Answer 2</button>
                 <button class="btn-c">Answer 2</button>
                 <button class="btn-d">Answer 4</button>
             </div>
-             <div class="controls">
-                <button id="start-btn" class="start-btn btn">Start</button>
+             <div class="d-flex justify-content-center my-3">
+                <button id="start-btn" class="btn btn-success">Start</button>
+            </div>
             </div>
         </div>
     </div>

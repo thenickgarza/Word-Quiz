@@ -1,5 +1,5 @@
 // Getting HTML elements
-var startButton = document.querySelector(".start-btn");
+var startButton = document.getElementById("start-btn");
 var questionElement = document.querySelector(".questions");
 var userInitials = document.querySelector("#initials");
 var userHighScore = document.querySelector("#highscore-score");
@@ -139,6 +139,9 @@ function startGame() {
   startButton.style.display = "none";
   highscorePage.style.display = "none";
   answerButtons.style.display = "block";
+  answerButtons.classList.add("d-flex")
+  answerButtons.classList.add("justify-content-center")
+  answerButtons.style.fontSize = "30px"
   // questionElement.style.display = "none";
   generateQuizQuestions();
   // logic to start the Timer
