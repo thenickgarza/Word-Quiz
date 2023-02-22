@@ -27,8 +27,8 @@ body {
 
  .btn-grid {
     display: grid;
-    padding: 40px;
-    margin: 40px;
+    /* padding: 40px;
+    margin: 40px; */
     gap: 20px;
     font-size: x-large;
 }
