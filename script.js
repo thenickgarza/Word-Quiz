@@ -172,13 +172,14 @@ function saveScores() {
 // function to end the game and display the highscore inout etc
 function endGame() {
   container.style.display = "none";
-  highscorePage.style.display = "block";
-  userInitials.style.display = "block";
-  sumbitBtn.style.display = "block";
+  // highscorePage.style.display = "block";
+  // userInitials.style.display = "block";
+  // sumbitBtn.style.display = "block";
   buttonGrid.style.display = "none";
   containerEL.style.display = "none";
   alert(" Congrats! Your score is " + score);
-  saveScores();
+  location.reload();
+  // saveScores();
 }
 // starts the game on a click of the start button
 startButton.addEventListener("click", startGame);
