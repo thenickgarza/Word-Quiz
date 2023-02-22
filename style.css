@@ -25,13 +25,9 @@ body {
     box-shadow: 0 0 10px 2px;
 }
 
- .btn-grid {
-    display: grid;
-    /* padding: 40px;
-    margin: 40px; */
-    gap: 10px;
-    font-size: x-large;
-}
+ button {
+    padding: 20px
+ }
 
 /*.btn {
     font-size: x-large;

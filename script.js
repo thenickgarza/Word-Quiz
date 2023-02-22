@@ -139,8 +139,7 @@ function startGame() {
   startButton.style.display = "none";
   highscorePage.style.display = "none";
   answerButtons.style.display = "block";
-  answerButtons.classList.add("d-flex")
-  answerButtons.classList.add("justify-content-center")
+  answerButtons.classList.remove("d-none")
   answerButtons.style.fontSize = "30px"
   // questionElement.style.display = "none";
   generateQuizQuestions();
