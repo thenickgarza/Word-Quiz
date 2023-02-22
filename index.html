@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta http-equiv="X-UA-Compatible" content="ie=edge">
+  <title>Quiz App</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+
+<body style="justify-content: center;">
+    <div class="container">
+        <!-- <div id="question-container" class="hide"></div> -->
+            <div style="display:flex; justify-content: center; align-items: center;" id="question-box">
+                <div id="timer"></div>
+             <p class="questions">Get Ready Gio!!!</p>
+            </div>
+            <div id="answer-buttons" class="btn-grid">
+                <button class="btn-a">Answer 1</button>
+                <button class="btn-b">Answer 2</button>
+                <button class="btn-c">Answer 2</button>
+                <button class="btn-d">Answer 4</button>
+            </div>
+             <div class="controls">
+                <button id="start-btn" class="start-btn btn">Start</button>
+            </div>
+        </div>
+    </div>
+    <div id="userInput">
+        <div id="finalScore"></div>
+        <input type="text" size = "40" placeholder="Enter you initials for high score" name="intials" id="initials"/>
+        <button id="submitScore">Submit Score</button>
+    </div>
+    <div id = "high-scorePage">
+        <div id = "highscore-header">
+            <ul>User Initials</ul>
+            <ul>Score</ul>
+        </div>
+        <div id = "highscore-initials"></div>
+        <div id = "highscore-score"></div>
+</div>
+    <script src="script.js"></script>
+</body>
