@@ -106,6 +106,8 @@ const sayWord = (msg) => {
   msg.text = "Hello World";
   window.speechSynthesis.speak(msg);
 }
+let speech = new SpeechSynthesisUtterance();
+  let sound = document.getElementById("btn-sound")
 
 // Generates the quiz questions and puts the buttons on a on click to the check answer function
 function generateQuizQuestions() {
@@ -113,14 +115,19 @@ function generateQuizQuestions() {
   var currentQuestion = quizQuestions[currentQuestionIndex];
   let speech = new SpeechSynthesisUtterance();
   let sound = document.getElementById("btn-sound")
-  sound.addEventListener("click", () => {
+  
+  // sound.addEventListener("click", () => {
+  //   voice = []
     speech.text = currentQuestion.sound
-    console.log(speech.text)
-    window.speechSynthesis.speak(speech)
-    event.preventDefault()
-  }) 
+  //   voice.push(speech.txt)
+  //   console.log(voice)
+  //   window.speechSynthesis.speak(speech)
+    function playSound() {
+      speech.text = currentQuestion.sound
+      window.speechSynthesis.speak(speech)
+    }
   
-  
+  sound.onclick = playSound
   questionElement.innerHTML = currentQuestion.question;
   buttonA.innerHTML = currentQuestion.choiceA;
   buttonA.onclick = checkAnswer;
