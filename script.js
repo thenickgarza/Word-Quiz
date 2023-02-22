@@ -135,8 +135,10 @@ function checkAnswer(answer) {
 
 // function to start the quiz
 function startGame() {
+  let answerButtons = document.getElementById("answer-buttons")
   startButton.style.display = "none";
   highscorePage.style.display = "none";
+  answerButtons.style.display = "block";
   // questionElement.style.display = "none";
   generateQuizQuestions();
   // logic to start the Timer
