@@ -13,6 +13,7 @@ var buttonD = document.querySelector(".btn-d");
 var containerEL = document.querySelector(".container");
 var container = document.querySelector("#question-box");
 var highscorePage = document.querySelector("#highscore-header");
+const msg = new SpeechSynthesisUtterance();
 highscorePage.style.display = "none";
 userInitials.style.display = "none";
 sumbitBtn.style.display = "none";
@@ -26,6 +27,7 @@ var quizQuestions = [
     choiceC: "S",
     choiceD: "F",
     correctAnswer: "S",
+    sound: "As",
   },
   {
     question: "G _ T",
@@ -34,6 +36,7 @@ var quizQuestions = [
     choiceC: "M",
     choiceD: "T",
     correctAnswer: "E",
+    sound: "Get",
   },
   {
     question: "O _",
@@ -42,6 +45,7 @@ var quizQuestions = [
     choiceC: "R",
     choiceD: "D",
     correctAnswer: "R",
+    sound: "Or",
   },
   {
     question: "ST _ P",
@@ -50,6 +54,7 @@ var quizQuestions = [
     choiceC: "R",
     choiceD: "D",
     correctAnswer: "O",
+    sound: "Stop",
   },
   {
     question: "C _ ME",
@@ -58,6 +63,7 @@ var quizQuestions = [
     choiceC: "R",
     choiceD: "D",
     correctAnswer: "O",
+    sound: "Come",
   },
   {
     question: "H _ T",
@@ -66,6 +72,7 @@ var quizQuestions = [
     choiceC: "R",
     choiceD: "D",
     correctAnswer: "A",
+    sound: "Hat",
   },
   {
     question: "O _ R",
@@ -74,6 +81,7 @@ var quizQuestions = [
     choiceC: "P",
     choiceD: "U",
     correctAnswer: "U",
+    sound: "Our",
   },
   {
     question: "TH _ T",
@@ -82,6 +90,66 @@ var quizQuestions = [
     choiceC: "A",
     choiceD: "D",
     correctAnswer: "A",
+    sound: "That",
+  },
+  {
+    question: "C _ T", 
+    choiceA: "A",
+    choiceB: "U",
+    choiceC: "I",
+    choiceD: "P",
+    correctAnswer: "U",
+    sound: "Cut",
+  },
+
+  {
+    question: "I _ ",
+    choiceA: "E",
+    choiceB: "T",
+    choiceC: "F",
+    choiceD: "S",
+    correctAnswer: "T",
+    sound: "It",
+  },
+
+  {
+    question: "R _ D",
+    choiceA: "I",
+    choiceB: "A",
+    choiceC: "O",
+    choiceD: "E",
+    correctAnswer: "E",
+    sound: "Red",
+  },
+
+  {
+    question: "WH _ N",
+    choiceA: "G",
+    choiceB: "A",
+    choiceC: "E",
+    choiceD: "N",
+    correctAnswer: "E",
+    sound: "When",
+  },
+
+  {
+    question: "FR _ M",
+    choiceA: "O",
+    choiceB: "E",
+    choiceC: "A",
+    choiceD: "U",
+    correctAnswer: "O",
+    sound: "From",
+  },
+
+  {
+    question: "MU _ T",
+    choiceA: "I",
+    choiceB: "O",
+    choiceC: "A",
+    choiceD: "S",
+    correctAnswer: "S",
+    sound: "Must",
   },
 ];
 // Other variables in
@@ -92,10 +160,33 @@ var timeLeft = 60;
 var score = 0;
 var correct;
 
+const sayWord = (msg) => {
+  var msg = new SpeechSynthesisUtterance();
+  msg.text = "Hello World";
+  window.speechSynthesis.speak(msg);
+}
+let speech = new SpeechSynthesisUtterance();
+  let sound = document.getElementById("btn-sound")
+
 // Generates the quiz questions and puts the buttons on a on click to the check answer function
 function generateQuizQuestions() {
   buttonGrid.style.display = "";
   var currentQuestion = quizQuestions[currentQuestionIndex];
+  let speech = new SpeechSynthesisUtterance();
+  let sound = document.getElementById("btn-sound")
+  
+  // sound.addEventListener("click", () => {
+  //   voice = []
+    speech.text = currentQuestion.sound
+  //   voice.push(speech.txt)
+  //   console.log(voice)
+  //   window.speechSynthesis.speak(speech)
+    function playSound() {
+      speech.text = currentQuestion.sound
+      window.speechSynthesis.speak(speech)
+    }
+  
+  sound.onclick = playSound
   questionElement.innerHTML = currentQuestion.question;
   buttonA.innerHTML = currentQuestion.choiceA;
   buttonA.onclick = checkAnswer;
@@ -105,6 +196,8 @@ function generateQuizQuestions() {
   buttonC.onclick = checkAnswer;
   buttonD.innerHTML = currentQuestion.choiceD;
   buttonD.onclick = checkAnswer;
+
+  
 }
 // function to check the answer.
 function checkAnswer(answer) {
@@ -116,10 +209,7 @@ function checkAnswer(answer) {
     alert("That Is Correct!");
     generateQuizQuestions();
     //display in the results div that the answer is correct.
-  } else if (
-    answer !== correct &&
-    currentQuestionIndex !== finalQuestionIndex
-  ) {
+  } else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
     alert("That Is Incorrect.");
     generateQuizQuestions();
   }
