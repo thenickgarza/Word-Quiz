@@ -92,6 +92,65 @@ var quizQuestions = [
     correctAnswer: "A",
     sound: "That",
   },
+  {
+    question: "C _ T", 
+    choiceA: "A",
+    choiceB: "U",
+    choiceC: "I",
+    choiceD: "P",
+    correctAnswer: "U",
+    sound: "Cut",
+  },
+
+  {
+    question: "I _ ",
+    choiceA: "E",
+    choiceB: "T",
+    choiceC: "F",
+    choiceD: "S",
+    correctAnswer: "T",
+    sound: "It",
+  },
+
+  {
+    question: "R _ D",
+    choiceA: "I",
+    choiceB: "A",
+    choiceC: "O",
+    choiceD: "E",
+    correctAnswer: "E",
+    sound: "Red",
+  },
+
+  {
+    question: "WH _ N",
+    choiceA: "G",
+    choiceB: "A",
+    choiceC: "E",
+    choiceD: "N",
+    correctAnswer: "E",
+    sound: "When",
+  },
+
+  {
+    question: "FR _ M",
+    choiceA: "O",
+    choiceB: "E",
+    choiceC: "A",
+    choiceD: "U",
+    correctAnswer: "O",
+    sound: "From",
+  },
+
+  {
+    question: "MU _ T",
+    choiceA: "I",
+    choiceB: "O",
+    choiceC: "A",
+    choiceD: "S",
+    correctAnswer: "S",
+    sound: "Must",
+  },
 ];
 // Other variables in
 var finalQuestionIndex = quizQuestions.length - 1;
@@ -150,10 +209,7 @@ function checkAnswer(answer) {
     alert("That Is Correct!");
     generateQuizQuestions();
     //display in the results div that the answer is correct.
-  } else if (
-    answer !== correct &&
-    currentQuestionIndex !== finalQuestionIndex
-  ) {
+  } else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
     alert("That Is Incorrect.");
     generateQuizQuestions();
   }
