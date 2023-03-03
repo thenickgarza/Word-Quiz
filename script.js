@@ -93,7 +93,7 @@ var quizQuestions = [
     sound: "That",
   },
   {
-    question: "C _ T", 
+    question: "C _ T",
     choiceA: "A",
     choiceB: "U",
     choiceC: "I",
@@ -164,30 +164,35 @@ const sayWord = (msg) => {
   var msg = new SpeechSynthesisUtterance();
   msg.text = "Hello World";
   window.speechSynthesis.speak(msg);
-}
+};
 let speech = new SpeechSynthesisUtterance();
-  let sound = document.getElementById("btn-sound")
+let sound = document.getElementById("btn-sound");
 
 // Generates the quiz questions and puts the buttons on a on click to the check answer function
 function generateQuizQuestions() {
   buttonGrid.style.display = "";
   var currentQuestion = quizQuestions[currentQuestionIndex];
   let speech = new SpeechSynthesisUtterance();
-  let sound = document.getElementById("btn-sound")
-  
+  let sound = document.getElementById("btn-sound");
+
   // sound.addEventListener("click", () => {
   //   voice = []
-    speech.text = currentQuestion.sound
+  speech.text = currentQuestion.sound;
   //   voice.push(speech.txt)
   //   console.log(voice)
   //   window.speechSynthesis.speak(speech)
-    function playSound() {
-      speech.text = currentQuestion.sound
-      window.speechSynthesis.speak(speech)
-    }
-  
-  sound.onclick = playSound
-  questionElement.innerHTML = currentQuestion.question;
+  function playSound() {
+    speech.text = currentQuestion.sound;
+    window.speechSynthesis.speak(speech);
+  }
+
+  // Start of adding coin images to the questions
+  const myImage = new Image(100, 200);
+  myImage.src = "coins/penny.jpeg";
+  document.body.appendChild(myImage);
+
+  sound.onclick = playSound;
+  questionElement.innerHTML = myImage;
   buttonA.innerHTML = currentQuestion.choiceA;
   buttonA.onclick = checkAnswer;
   buttonB.innerHTML = currentQuestion.choiceB;
@@ -196,8 +201,6 @@ function generateQuizQuestions() {
   buttonC.onclick = checkAnswer;
   buttonD.innerHTML = currentQuestion.choiceD;
   buttonD.onclick = checkAnswer;
-
-  
 }
 // function to check the answer.
 function checkAnswer(answer) {
@@ -209,7 +212,10 @@ function checkAnswer(answer) {
     alert("That Is Correct!");
     generateQuizQuestions();
     //display in the results div that the answer is correct.
-  } else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
+  } else if (
+    answer !== correct &&
+    currentQuestionIndex !== finalQuestionIndex
+  ) {
     alert("That Is Incorrect.");
     generateQuizQuestions();
   }
@@ -225,12 +231,12 @@ function checkAnswer(answer) {
 
 // function to start the quiz
 function startGame() {
-  let answerButtons = document.getElementById("answer-buttons")
+  let answerButtons = document.getElementById("answer-buttons");
   startButton.style.display = "none";
   highscorePage.style.display = "none";
   answerButtons.style.display = "block";
-  answerButtons.classList.remove("d-none")
-  answerButtons.style.fontSize = "30px"
+  answerButtons.classList.remove("d-none");
+  answerButtons.style.fontSize = "30px";
   // questionElement.style.display = "none";
   generateQuizQuestions();
   // logic to start the Timer
@@ -257,7 +263,7 @@ function saveScores() {
     console.log(userInitials);
     sumbitBtn.style.display = "none";
     userInitials.style.display = "none";
-    console.log(savedScores)
+    console.log(savedScores);
   });
 }
 
