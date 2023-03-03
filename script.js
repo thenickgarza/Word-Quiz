@@ -215,6 +215,7 @@ function checkAnswer(answer) {
       setTimeout(function() { document.body.style.backgroundColor = "" }, 175);
       }
     flashGreen();
+    currentQuestionIndex++;
     generateQuizQuestions();
     //display in the results div that the answer is correct.
   } else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
@@ -223,16 +224,10 @@ function checkAnswer(answer) {
       setTimeout(function() { document.body.style.backgroundColor = "" }, 175);
       }
     flashRed();
-  }
-  //display in the results div that the answer is wrong.
-  if (currentQuestionIndex === finalQuestionIndex) {
-    alert("You Have Completed All The Questions, Click Ok To See How You Did!");
+  } else if (currentQuestionIndex === finalQuestionIndex) {
     endGame();
-  } else {
-    currentQuestionIndex++;
-    generateQuizQuestions();
   }
-}
+};
 
 // function to start the quiz
 function startGame() {
