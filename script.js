@@ -189,10 +189,10 @@ function generateQuizQuestions() {
   // Start of adding coin images to the questions
   const myImage = new Image(100, 200);
   myImage.src = "coins/penny.jpeg";
-  document.body.appendChild(myImage);
+ // document.body.appendChild(myImage);
 
   sound.onclick = playSound;
-  questionElement.innerHTML = myImage;
+  questionElement.innerHTML = currentQuestion.question;
   buttonA.innerHTML = currentQuestion.choiceA;
   buttonA.onclick = checkAnswer;
   buttonB.innerHTML = currentQuestion.choiceB;
@@ -202,6 +202,7 @@ function generateQuizQuestions() {
   buttonD.innerHTML = currentQuestion.choiceD;
   buttonD.onclick = checkAnswer;
 }
+
 // function to check the answer.
 function checkAnswer(answer) {
   answer = answer.target.innerText;
@@ -209,15 +210,19 @@ function checkAnswer(answer) {
   // if answer is correct add 5 to the score and call the generateQuizQuestion function
   if (answer === correct && currentQuestionIndex !== finalQuestionIndex) {
     score = score + 5;
-    alert("That Is Correct!");
+    function flashGreen() {
+      setTimeout(function(){  document.body.style.backgroundColor = "green"; });
+      setTimeout(function() { document.body.style.backgroundColor = "" }, 175);
+      }
+    flashGreen();
     generateQuizQuestions();
     //display in the results div that the answer is correct.
-  } else if (
-    answer !== correct &&
-    currentQuestionIndex !== finalQuestionIndex
-  ) {
-    alert("That Is Incorrect.");
-    generateQuizQuestions();
+  } else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
+    function flashRed() {
+      setTimeout(function(){  document.body.style.backgroundColor = "red"; });
+      setTimeout(function() { document.body.style.backgroundColor = "" }, 175);
+      }
+    flashRed();
   }
   //display in the results div that the answer is wrong.
   if (currentQuestionIndex === finalQuestionIndex) {
