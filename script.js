@@ -189,7 +189,7 @@ function generateQuizQuestions() {
   // Start of adding coin images to the questions
   const myImage = new Image(100, 200);
   myImage.src = "coins/penny.jpeg";
- // document.body.appendChild(myImage);
+  // document.body.appendChild(myImage);
 
   sound.onclick = playSound;
   questionElement.innerHTML = currentQuestion.question;
@@ -211,23 +211,34 @@ function checkAnswer(answer) {
   if (answer === correct && currentQuestionIndex !== finalQuestionIndex) {
     score = score + 5;
     function flashGreen() {
-      setTimeout(function(){  document.body.style.backgroundColor = "green"; });
-      setTimeout(function() { document.body.style.backgroundColor = "" }, 175);
-      }
+      setTimeout(function () {
+        document.body.style.backgroundColor = "green";
+      });
+      setTimeout(function () {
+        document.body.style.backgroundColor = "";
+      }, 175);
+    }
     flashGreen();
     currentQuestionIndex++;
     generateQuizQuestions();
     //display in the results div that the answer is correct.
-  } else if (answer !== correct && currentQuestionIndex !== finalQuestionIndex) {
+  } else if (
+    answer !== correct &&
+    currentQuestionIndex !== finalQuestionIndex
+  ) {
     function flashRed() {
-      setTimeout(function(){  document.body.style.backgroundColor = "red"; });
-      setTimeout(function() { document.body.style.backgroundColor = "" }, 175);
-      }
+      setTimeout(function () {
+        document.body.style.backgroundColor = "red";
+      });
+      setTimeout(function () {
+        document.body.style.backgroundColor = "";
+      }, 175);
+    }
     flashRed();
   } else if (currentQuestionIndex === finalQuestionIndex) {
     endGame();
   }
-};
+}
 
 // function to start the quiz
 function startGame() {
